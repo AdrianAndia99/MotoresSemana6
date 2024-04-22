@@ -1,0 +1,56 @@
+{
+    "name": "Movement",
+    "maps": [
+        {
+            "name": "Movimiento",
+            "id": "66029867-514e-48bf-b079-4e21a4b8ce5b",
+            "actions": [
+                {
+                    "name": "MovimientoPlayer",
+                    "type": "Value",
+                    "id": "2ab37d5e-f726-4069-9d0c-fdb12643bbbe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "57833972-379e-4d61-9b43-8954e41c16cf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovimientoPlayer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "bd8e9c76-fc6d-49e2-b588-677d9fece60b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovimientoPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "53b2555d-4029-48fb-b1ab-f22088fb9089",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovimientoPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
