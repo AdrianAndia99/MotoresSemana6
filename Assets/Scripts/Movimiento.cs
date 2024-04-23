@@ -46,14 +46,17 @@ public class Movimiento : MonoBehaviour
             {
                 collisionSound1.volume = audioSettings.sfxVolume;
                 collisionSound1.Play();
+                Debug.Log("sonando");
             }
-        }else if(collision.gameObject.tag == ("cubo2"))
+        }
+        else if(collision.gameObject.tag == ("cubo2"))
         {
             if(collisionSound2 != null)
             {
                 collisionSound2.volume = audioSettings.sfxVolume;
                 collisionSound2.Play();
-            }           
+                Debug.Log("sonando");
+            }
         }
 
         if(collision.gameObject.tag == "cambio")
