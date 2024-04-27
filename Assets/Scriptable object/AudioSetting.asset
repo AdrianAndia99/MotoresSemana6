@@ -15,3 +15,4 @@ MonoBehaviour:
   masterVolume: 1
   musicVolume: 1
   sfxVolume: 1
+  AudioClip: {fileID: 8300000, guid: 87f00c731f7fea84cb2c501d3a49db1a, type: 3}
