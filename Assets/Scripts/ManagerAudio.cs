@@ -9,6 +9,7 @@ public class ManagerAudio : MonoBehaviour
 
     private float musicVolume = 1f;
     private float sfxVolume = 1f;
+    private float masterVolume = 1f;
 
     private void Awake()
     {
@@ -34,6 +35,12 @@ public class ManagerAudio : MonoBehaviour
         sfxVolume = volume;
         mixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
     }
+    public void SetMasterVolume(float volume)
+    {
+        masterVolume = volume;
+        mixer.SetFloat("master", Mathf.Log10(volume) * 20);
+    }
+
 
     public float GetMusicVolume()
     {
@@ -43,6 +50,11 @@ public class ManagerAudio : MonoBehaviour
     public float GetSFXVolume()
     {
         return sfxVolume;
+    }
+
+    public float GetMasterVolume()
+    {
+        return masterVolume;
     }
 }
 // se supone que sería el singleton pero no se como meterlo XDDDD 26-04-2024

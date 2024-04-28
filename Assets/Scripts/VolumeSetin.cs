@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class VolumeSetin : MonoBehaviour
 {
-    [SerializeField] private Slider sliderMixer;
-    [SerializeField] private Slider sliderMixer2;
+    [SerializeField] private Slider musicMixer;
+    [SerializeField] private Slider sfxMixer;
+    [SerializeField] private Slider masterMixer;
 
     private ManagerAudio audioManager;
 
@@ -23,6 +24,7 @@ public class VolumeSetin : MonoBehaviour
         }
         else
         {
+            SetMasterVolume();
             SetMusicVolume();
             SetSFXVolume();
         }
@@ -32,9 +34,9 @@ public class VolumeSetin : MonoBehaviour
     {
         if (audioManager != null)
         {
-            float volume = sliderMixer.value;
-            audioManager.SetMusicVolume(volume);
-            PlayerPrefs.SetFloat("musicVolume", volume);
+            float volume1 = musicMixer.value;
+            audioManager.SetMusicVolume(volume1);
+            PlayerPrefs.SetFloat("musicVolume", volume1);
         }      
     }
 
@@ -42,9 +44,19 @@ public class VolumeSetin : MonoBehaviour
     {
         if (audioManager != null)
         {
-            float volume = sliderMixer2.value;
-            audioManager.SetSFXVolume(volume);
-            PlayerPrefs.SetFloat("SFXvolume", volume);
+            float volume2 = sfxMixer.value;
+            audioManager.SetSFXVolume(volume2);
+            PlayerPrefs.SetFloat("SFXvolume", volume2);
+        }
+    }
+
+    public void SetMasterVolume()
+    {
+        if (audioManager != null)
+        {
+            float volume3 = masterMixer.value;
+            audioManager.SetMasterVolume(volume3);
+            PlayerPrefs.SetFloat("masterVolume", volume3);
         }
     }
 
@@ -52,11 +64,14 @@ public class VolumeSetin : MonoBehaviour
     {
         if (audioManager != null)
         {
-            sliderMixer.value = audioManager.GetMusicVolume();
-            sliderMixer2.value = audioManager.GetSFXVolume();
-            sliderMixer.value = PlayerPrefs.GetFloat("musicVolume");
-            sliderMixer2.value = PlayerPrefs.GetFloat("SFXvolume");
+            masterMixer.value = audioManager.GetMasterVolume();
+            musicMixer.value = audioManager.GetMusicVolume();
+            sfxMixer.value = audioManager.GetSFXVolume();
 
+
+            musicMixer.value = PlayerPrefs.GetFloat("musicVolume");
+            sfxMixer.value = PlayerPrefs.GetFloat("SFXvolume");
+            masterMixer.value = PlayerPrefs.GetFloat("masterVolume");
         }
     }
 }
