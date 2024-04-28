@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 public class ManagerAudio : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    public static ManagerAudio Instance { get; private set; }
 
     [SerializeField] private AudioMixer mixer;
 
@@ -45,4 +45,5 @@ public class ManagerAudio : MonoBehaviour
         return sfxVolume;
     }
 }
-// se supone que sería el singleton pero no se como meterlo XDDDD
+// se supone que sería el singleton pero no se como meterlo XDDDD 26-04-2024
+// ahora si logre implementarlo gaaaaaaaaaa 27-04-2024

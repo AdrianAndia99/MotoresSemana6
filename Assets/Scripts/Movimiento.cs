@@ -8,6 +8,9 @@ public class Movimiento : MonoBehaviour
     private Vector2 moveInput;
     public AudioSource collisionSound1;
     public AudioSource collisionSound2;
+    public AudioSource collisionSound3;
+    public AudioSource collisionSound4;
+
     public AudioSource footstepSound;
     public AudioSettings audioSettings;
 
@@ -32,7 +35,6 @@ public class Movimiento : MonoBehaviour
             footstepSound.Stop();
         }
     }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -40,7 +42,7 @@ public class Movimiento : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag ==("cubo"))
+        if (collision.gameObject.tag == ("cubo"))
         {
             if (collisionSound1 != null)
             {
@@ -49,21 +51,41 @@ public class Movimiento : MonoBehaviour
                 Debug.Log("sonando");
             }
         }
-        else if(collision.gameObject.tag == ("cubo2"))
+        else if (collision.gameObject.tag == ("cubo2"))
         {
-            if(collisionSound2 != null)
+            if (collisionSound2 != null)
             {
                 collisionSound2.volume = audioSettings.sfxVolume;
                 collisionSound2.Play();
                 Debug.Log("sonando");
             }
         }
+        else if (collision.gameObject.tag == ("cubo3"))
+        {
+            if (collisionSound3 != null)
+            {
+                collisionSound3.volume = audioSettings.sfxVolume;
+                collisionSound3.Play();
+                Debug.Log("sonando");
+            }
+        }
+        else if (collision.gameObject.tag == ("cubo4"))
+        {
+            if (collisionSound4 != null)
+            {
+                collisionSound4.volume = audioSettings.sfxVolume;
+                collisionSound4.Play();
+                Debug.Log("sonando");
+            }
+        }
 
-        if(collision.gameObject.tag == "cambio")
+        if (collision.gameObject.tag == "cambio")
         {
             SceneManager.LoadScene("Parte2");
         }
     }
+
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == ("cubo"))
@@ -78,6 +100,20 @@ public class Movimiento : MonoBehaviour
             if (collisionSound2 != null)
             {
                 collisionSound2.Stop();
+            }
+        }
+        else if (collision.gameObject.tag == ("cubo3"))
+        {
+            if (collisionSound3 != null)
+            {
+                collisionSound3.Stop();
+            }
+        }
+        else if (collision.gameObject.tag == ("cubo4"))
+        {
+            if (collisionSound4 != null)
+            {
+                collisionSound4.Stop();
             }
         }
     }

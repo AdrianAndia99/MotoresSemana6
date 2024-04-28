@@ -7,6 +7,8 @@ TagManager:
   - cubo
   - cambio
   - cubo2
+  - cubo3
+  - cubo4
   layers:
   - Default
   - TransparentFX
