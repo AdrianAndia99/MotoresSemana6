@@ -40,8 +40,6 @@ public class ManagerAudio : MonoBehaviour
         masterVolume = volume;
         mixer.SetFloat("master", Mathf.Log10(volume) * 20);
     }
-
-
     public float GetMusicVolume()
     {
         return musicVolume;

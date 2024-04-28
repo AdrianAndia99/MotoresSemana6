@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Movimiento : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class Movimiento : MonoBehaviour
 
     public AudioSource footstepSound;
     public AudioSettings audioSettings;
-
     private float footstepInterval = 0.5f;
     private float footstepTimer;
+
+    public FadeCodigo fade;
 
     private void Update()
     {
@@ -35,11 +37,12 @@ public class Movimiento : MonoBehaviour
             footstepSound.Stop();
         }
     }
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == ("cubo"))
@@ -49,6 +52,8 @@ public class Movimiento : MonoBehaviour
                 collisionSound1.volume = audioSettings.sfxVolume;
                 collisionSound1.Play();
                 Debug.Log("sonando");
+
+                FadeIn();
             }
         }
         else if (collision.gameObject.tag == ("cubo2"))
@@ -58,6 +63,8 @@ public class Movimiento : MonoBehaviour
                 collisionSound2.volume = audioSettings.sfxVolume;
                 collisionSound2.Play();
                 Debug.Log("sonando");
+
+                FadeIn();
             }
         }
         else if (collision.gameObject.tag == ("cubo3"))
@@ -67,6 +74,8 @@ public class Movimiento : MonoBehaviour
                 collisionSound3.volume = audioSettings.sfxVolume;
                 collisionSound3.Play();
                 Debug.Log("sonando");
+
+                FadeIn();
             }
         }
         else if (collision.gameObject.tag == ("cubo4"))
@@ -76,6 +85,8 @@ public class Movimiento : MonoBehaviour
                 collisionSound4.volume = audioSettings.sfxVolume;
                 collisionSound4.Play();
                 Debug.Log("sonando");
+
+                FadeIn();
             }
         }
 
@@ -85,7 +96,6 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == ("cubo"))
@@ -93,6 +103,8 @@ public class Movimiento : MonoBehaviour
             if (collisionSound1 != null)
             {
                 collisionSound1.Stop();
+
+                FadeOut();
             }
         }
         else if (collision.gameObject.tag == ("cubo2"))
@@ -100,6 +112,8 @@ public class Movimiento : MonoBehaviour
             if (collisionSound2 != null)
             {
                 collisionSound2.Stop();
+
+                FadeOut();
             }
         }
         else if (collision.gameObject.tag == ("cubo3"))
@@ -107,6 +121,8 @@ public class Movimiento : MonoBehaviour
             if (collisionSound3 != null)
             {
                 collisionSound3.Stop();
+
+                FadeOut();
             }
         }
         else if (collision.gameObject.tag == ("cubo4"))
@@ -114,11 +130,22 @@ public class Movimiento : MonoBehaviour
             if (collisionSound4 != null)
             {
                 collisionSound4.Stop();
+
+                FadeOut();
             }
         }
     }
     private bool IsMoving()
     {
         return moveInput.magnitude > 0;
+    }
+
+    public void FadeIn()
+    {
+        fade.StartFadeIn();
+    }
+    public void FadeOut()
+    {
+        fade.StartFadeOut();
     }
 }

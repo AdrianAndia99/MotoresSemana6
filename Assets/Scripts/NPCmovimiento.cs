@@ -25,7 +25,6 @@ public class NPCmovimiento : MonoBehaviour
                 yield return new WaitForSeconds(1f);
                 currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
             }
-
             yield return null;
         }
     }
